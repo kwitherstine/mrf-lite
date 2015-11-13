@@ -1,0 +1,29 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto eth0
+iface eth0 inet dhcp
+
+auto mrf12
+iface mrf12
+	link-type dummy
+	address 12.12.12.22/32
+	pre-up ip link set arp on mrf12
+
+auto mrf22
+iface mrf22
+	link-type dummy
+	address 22.22.22.23/32
+	pre-up ip link set arp on mrf22
+
+# Static setup
+#iface eth0 inet static
+#      address 10.0.2.15
+#      netmask 255.255.255.0
+#      gateway 10.0.2.2
+
